@@ -1,35 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msalmon- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/12 21:07:27 by msalmon-          #+#    #+#             */
-/*   Updated: 2021/11/12 21:07:39 by msalmon-         ###   ########.fr       */
+/*   Created: 2021/10/12 21:58:02 by msalmon-          #+#    #+#             */
+/*   Updated: 2022/03/07 19:32:39 by msalmon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+# include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t n)
+int	ft_putchar(int c)
 {
-	char	*origen;
-	char	*destino;
-
-	origen = (char *)src;
-	destino = (char *)dst;
-	if (origen < destino && (origen + ft_strlen(src)) > destino)
-	{
-		while (n > 0 && destino)
-		{
-			destino[n - 1] = origen[n - 1];
-			n--;
-		}
-	}
-	else
-	{
-		ft_memcpy(destino, origen, n);
-	}
-	return (dst);
+	write(1, &c, 1);
+	return (1);
 }

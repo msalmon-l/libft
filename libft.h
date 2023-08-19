@@ -12,11 +12,16 @@
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# include <stdarg.h>
 # include <stddef.h>
 # include <stdlib.h>
 # include <string.h>
 # include <stdio.h>
 # include <unistd.h>
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1
+# endif
+//definir colores
 
 int		ft_isalpha(int c);
 int		ft_isalnum(int c);
@@ -52,6 +57,29 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+
+//printf
+
+int				ft_printf(const char *str, ...);
+int				ft_putchar(int c);
+int				ft_get_value(const char c, va_list str);
+int				ft_putstr(char *str);
+int				convert_to_hexa(unsigned long n, char character);
+unsigned char	*ft_itoa_unsigned(unsigned int n);
+
+//gnl
+
+char	*ft_strjoin_gnl(char *s1, char *s2);
+size_t	ft_strlen_gnl(const char *s);
+void	*ft_memcpy_gnl(const void *src, size_t n);
+char	*get_next_line(int fd);
+ssize_t	ft_read_file(int file, char *s1, char *s2);
+size_t	len_memory(char const *str, unsigned int start, size_t len_str);
+char	*ft_substr_gnl(char *s, unsigned int start, size_t len);
+size_t	ft_get_len_line(const char *s);
+
+//listas
+
 typedef struct s_list
 {
 	void			*content;
@@ -68,4 +96,5 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
 #endif

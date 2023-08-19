@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static size_t	len_memory(char const *str, unsigned int start, size_t len_str);
+static size_t	ft_len_memory(char const *str, unsigned int start, size_t len_str);
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
@@ -30,7 +30,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	}
 	else if (s)
 	{
-		ptr = malloc(sizeof(char) * (len_memory(s, start, len) + 1));
+		ptr = malloc(sizeof(char) * (ft_len_memory(s, start, len) + 1));
 		if (ptr == 0)
 			return (0);
 		while (s[start] && len > i)
@@ -40,7 +40,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (ptr);
 }
 
-static size_t	len_memory(char const *str, unsigned int start, size_t len_str)
+static size_t	ft_len_memory(char const *str, unsigned int start, size_t len_str)
 {
 	size_t	memory;
 
